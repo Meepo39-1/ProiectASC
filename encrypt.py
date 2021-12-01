@@ -26,7 +26,7 @@ def CryptingText(text,parola):
     return outputText
 
 def DisplayText(text,file):
-    file.write(text.encode())
+    file.write(text.encode("utf-8"))
 
 #citire fisier
 inputText=ParsingFile(inputFile)

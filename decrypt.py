@@ -3,7 +3,7 @@ import sys # pt a citi fisierul si parola
 #Date de intrare->le vom citi din terminal, invatam dupa
 key=sys.argv[2]
 inputFile=open(sys.argv[1],"rb")
-outputFile=open(sys.argv[3],"w")
+outputFile=open(sys.argv[3],"w",encoding="utf-8")
 
 def ParsingFile(file):
     codedText=file.read()
@@ -14,8 +14,11 @@ def DecryptText(codedText):
     index = 0
     lenKey= len(key)
     for byte in codedText:
-        rez.append(chr(byte ^ ord(key[index % lenKey])))
-        index += 1
+        try:
+            rez.append(chr(byte ^ ord(key[index % lenKey])))
+            index += 1
+        except:
+            print(index)
 
     decodedText = "".join(rez)
     return decodedText
@@ -26,8 +29,6 @@ def DisplayText(text,file):
 codedText=ParsingFile(inputFile)
 decodedText=DecryptText(codedText)
 DisplayText(decodedText,outputFile)
-
-'''
 
 
 def CryptingText(text,parola):
