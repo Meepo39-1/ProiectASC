@@ -22,42 +22,20 @@ def DecryptText(codedText):
 
     decodedText = "".join(rez)
     return decodedText
-
-
 def DisplayText(text,file):
     file.write(text)
+
+#citire cod criptat
 codedText=ParsingFile(inputFile)
+
+#decriptare cod
 decodedText=DecryptText(codedText)
+
+#afisare mesaj original
 DisplayText(decodedText,outputFile)
 
-
-def CryptingText(text,parola):
-    lenText = len(text)
-    lenParola = len(parola)
-    outputText=[]
-    for index in range(lenText):
-        chrText=text[index]
-        chrParola=parola[index % lenParola-1]
-        outputText.append(chr(ord(chrText) ^ ord(chrParola)))
-
-    outputText=" ".join(outputText)
-    return outputText
-
-def DisplayText(text,file):
-    file.write(text.encode())
-
-#citire fisier
-inputText=ParsingFile(inputFile)
-
-#criptare text
-outputText=CryptingText(inputText,password)
-
-#afisare text criptat
-DisplayText(outputText,outputFile)
-
-#inchidere fisiere
+#inchidere fisier
 inputFile.close()
 outputFile.close()
-print(password)
 
-'''
+

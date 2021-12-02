@@ -1,7 +1,7 @@
 import sys # pt a citi fisierul si parola
 
-#Date de intrare->le vom citi din terminal, invatam dupa
-password=sys.argv[1]
+#Date de intrare
+key=sys.argv[1]
 inputFile=open(sys.argv[2],"r")
 outputFile=open(sys.argv[3],"wb")
 
@@ -13,13 +13,13 @@ def ParsingFile(file):
 def CryptingText(text,parola):
   #  print(text)
     lenText = len(text)
-    lenParola = len(parola)
+    lenKey = len(key)
     outputText=[]
     for index in range(lenText):
         chrText=text[index]
-        chrParola=parola[index % lenParola]
+        chrKey=parola[index % lenKey]
 
-        outputText.append(chr(ord(chrText) ^ ord(chrParola)))
+        outputText.append(chr(ord(chrText) ^ ord(chrKey)))
         # print(f'{chrText} XOR {chrParola} ={chr(ord(chrText) ^ ord(chrParola))}, original={chr(ord(chrParola)^ ord(chrText) ^ ord(chrParola))}')
 
     outputText="".join(outputText)
@@ -32,7 +32,7 @@ def DisplayText(text,file):
 inputText=ParsingFile(inputFile)
 
 #criptare text
-outputText=CryptingText(inputText,password)
+outputText=CryptingText(inputText,key)
 
 #afisare text criptat
 DisplayText(outputText,outputFile)
@@ -40,5 +40,5 @@ DisplayText(outputText,outputFile)
 #inchidere fisiere
 inputFile.close()
 outputFile.close()
-# print(password)
+
 
