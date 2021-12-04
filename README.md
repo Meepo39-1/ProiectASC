@@ -5,7 +5,7 @@ Marin Florin Eduard Marian
 Furdui Vlad Rares  
 
 Parola echipei adverse: 2PisicipeOita  
-Metoda: brute-forcing 
+Metoda: brute-forcing   
 Stim ca lungimea parolei este intre 10 si 15, iar caracterele pot fi litere sau cifre. De asemenea, stim ca fiecare caracter are o reprezentare unica in baza 2. Astfel,aplicam urmatorul algoritm:
 Pentru fiecare caracter din primele 30 caractere din fisierul input.txt:
     incearca operatia xor cu fiecare litera/cifra din tabelul ascii
